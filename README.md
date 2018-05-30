@@ -4,7 +4,6 @@ Simplify the use of Promise, to use async parallel functions need to wait for an
 Example:
 ```javascript
 import promiseDecoupling from 'promise-decoupling'
-const { extractor } = require('svg-extractor')
 
 const something = promiseDecoupling()
 
@@ -22,6 +21,7 @@ const secondaryCode = async () => {
   try {
     /*... your code ...*/
     successCode()
+
   } catch (error) {
     /*... your code ...*/
     failCode()
@@ -29,12 +29,12 @@ const secondaryCode = async () => {
 }
 
 const primaryCode = async () => {
+  /*... your code ...*/
   await something.promise()
   /*... your code ...*/
 }
 
 const main = () => {
-  const something = promiseDecoupling()
   primaryCode()
   secondaryCode()
 }
